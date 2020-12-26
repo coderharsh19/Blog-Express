@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs");-%>
+
+    <div class="blog-container">
+        <h1>
+            <%=blog.blogTitle%>
+        </h1>
+        <h4>
+            <%=blog.createdAt.toLocaleDateString()%>
+        </h4>
+
+        <p>
+            <%=blog.blogContent%>
+        </p>
+    </div>
+
+    <%- include("partials/footer.ejs");-%>

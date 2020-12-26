@@ -1,0 +1,24 @@
+<%- include("partials/header.ejs");-%>
+
+
+    <div class="form-container">
+        <div class="form-title-text-container">
+            <h3 class="form-title">Edit your post</h3>
+        </div>
+        <form action="/blogs/edit/<%=blog.id%>" method="POST" class="mt-5">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter title"
+                    name="blogTitle" value="<%=blog.blogTitle%>">
+
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea name="blogContent" cols="40" rows="5" id="input-2"
+                        class="form-control"><%=blog.blogContent%></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+    </div>
+
+
+    <%- include("partials/footer.ejs");-%>

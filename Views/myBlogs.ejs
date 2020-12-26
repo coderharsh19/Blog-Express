@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs");-%>
+    <div class="content-outer">
+        <% blog.forEach(function(blog){ %>
+            <div class="single-content">
+                <h1>
+                    <%=blog.blogTitle%>
+                </h1>
+                <h4>
+                    <%=blog.createdAt.toLocaleDateString()%>
+                </h4>
+                <p>
+                    <%=blog.blogContent.substring(0,100)%>...
+                        <a href="/blogs/<%= blog.slug%>"><strong>...Read more</strong></a>
+                </p>
+                <div class="blog-buttons">
+                    <form action="blogs/delete/<%=blog.id%>" method="POST">
+                        <button class="del-button" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    </form>
+                    <a href="blogs/edit/<%=blog.id%>"><button class="del-button" type="submit"><i class="fa fa-edit"
+                                aria-hidden="true"></i></button></a>
+                </div>
+
+            </div>
+            <% }) %>
+
+    </div>
+    <%- include("partials/footer.ejs");-%>
