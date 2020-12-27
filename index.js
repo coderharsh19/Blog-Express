@@ -7,6 +7,8 @@ const session = require("express-session");
 const passport = require("passport")
 const User = require("./models/user_data");
 const flash = require("connect-flash");
+require('dotenv').config()
+
 
 
 /// import Passport config
@@ -59,7 +61,7 @@ app.use((req, res, next) => {
 
 
 
-mongoose.connect("mongodb://localhost:27017/blogExpressDB", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, function (err) {
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, function (err) {
   if (err) {
     console.log(err)
   }

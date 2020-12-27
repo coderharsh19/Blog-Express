@@ -6,7 +6,7 @@ const Blog = require("../models/blog_data");
 const blogController = {
     homeRoute: (req, res) => {
         if (req.isAuthenticated()) {
-            console.log(req.user);
+
             Blog.find({}, (err, blogs) => {
                 if (err) {
                     console.log(err)
@@ -23,7 +23,7 @@ const blogController = {
     },
     myBlogsRoute: (req, res) => {
         if (req.isAuthenticated()) {
-            console.log(req.user);
+
             Blog.find({ userName: req.user.email }, (err, blogFound) => {
                 if (err) {
                     console.log(err)
