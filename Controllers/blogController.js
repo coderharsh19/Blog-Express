@@ -7,11 +7,10 @@ const blogController = {
     homeRoute: (req, res) => {
         if (req.isAuthenticated()) {
 
-            Blog.find({}).populate("user").exec((err, blogsfound) => {
+            Blog.find({}).populate("user").exec((err, blogs) => {
                 if (err) console.log(err)
                 // res.json(blogsfound)
-                res.render("home", { blogs: blogsfound, user: req.user });
-                // res.json(blogs[1].user.name)
+                res.render("home", { blogs, user: req.user });
             })
         }
         else {
@@ -22,12 +21,12 @@ const blogController = {
     myBlogsRoute: (req, res) => {
         if (req.isAuthenticated()) {
 
-            Blog.find({ user: req.user }, (err, blogFound) => {
+            Blog.find({ user: req.user }, (err, blog) => {
                 if (err) {
                     console.log(err)
                 }
                 else {
-                    res.render("myBlogs", { blog: blogFound });
+                    res.render("myBlogs", { blog });
                 }
                 // res.render("myBlogs", { blog });
             })

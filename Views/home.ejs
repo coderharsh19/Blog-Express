@@ -3,25 +3,30 @@
     <div class="content-outer">
         <h1 class="welcome-text">Welcome, <%=user.name %>
         </h1>
-        <div class="content-inner">
-            <% blogs.forEach(function(blog){ %>
-                <div class="single-content">
-                    <h1>
-                        <%=blog.blogTitle%>
-                    </h1>
-                    <h5>
-                        Created By: <%=blog.user.name%>
-                    </h5>
-                    <h5>
-                        <%=blog.createdAt.toLocaleDateString()%>
-                    </h5>
-                    <p>
-                        <%=blog.blogContent.substring(0,100)%>...
-                            <a href="/blogs/<%= blog.slug%>"><strong>...Read more</strong></a>
-                    </p>
+        <%if (blogs=="" ) {%>
+            <div class="empty-content">
+                <h1>It's empty here, Start with writing your first blog........ :)</h1>
+            </div>
+            <% }%>
+                <div class="content-inner">
+                    <% blogs.forEach(function(blog){ %>
+                        <div class="single-content">
+                            <h1>
+                                <%=blog.blogTitle%>
+                            </h1>
+                            <h5>
+                                Created By: <%=blog.user.name%>
+                            </h5>
+                            <h5>
+                                <%=blog.createdAt.toLocaleDateString()%>
+                            </h5>
+                            <p>
+                                <%=blog.blogContent.substring(0,100)%>...
+                                    <a href="/blogs/<%= blog.slug%>"><strong>...Read more</strong></a>
+                            </p>
+                        </div>
+                        <% }) %>
                 </div>
-                <% }) %>
-        </div>
 
 
     </div>
