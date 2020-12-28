@@ -20,9 +20,9 @@ const blogSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  userName: {
-    type: String,
-    ref: "UserInfo"
+  user: {
+    type: ObjectId,
+    ref: "UserData"
   }
 });
 
