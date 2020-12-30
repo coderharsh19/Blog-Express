@@ -1,6 +1,6 @@
 const express = require("express");
 const { create } = require("lodash");
-const Blog = require("../models/blog_data");
+const Blog = require("../models/Blog");
 
 
 const blogController = {

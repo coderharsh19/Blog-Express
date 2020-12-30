@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const passport = require("passport")
-const User = require("./models/user_data");
+const User = require("./models/User");
 const flash = require("connect-flash");
 require('dotenv').config()
 
